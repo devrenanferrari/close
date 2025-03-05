@@ -1848,23 +1848,27 @@
   function closeModal(id) {
       document.getElementById(id).style.display = 'none';
   }
-
+  function openLoginModal() {
+      openModal('loginModal');
+  }
+  function openRegisterModal() {
+      closeModal('loginModal');
+      openModal('registerModal');
+  }
+  function openUserDataModal() {
+      closeModal('loginModal');
+      closeModal('registerModal');
+      openModal('userDataModal');
+  }
   async function generatePix() {
       const nome = document.getElementById('fullName').value;
       const cpf = document.getElementById('cpf').value;
-      const valor = 24.90; // Valor fixo
-
-      // Validação simples dos campos
-      if (!nome || !cpf) {
-          alert('Por favor, preencha todos os campos.');
-          return;
-      }
-
+      const valor = 24.90;
       try {
-          const response = await fetch('/api/process-pix', {
+          const response = await fetch('/api/generate-pix', {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify({nome, cpf, valor})
+              body: JSON.stringify({nome, cpf})
           });
           const data = await response.json();
           if (data.status === 'success') {
@@ -1880,7 +1884,6 @@
           alert('Erro ao processar o PIX');
       }
   }
-
   function copyPixCode() {
       navigator.clipboard.writeText(document.getElementById('pixCode').innerText)
           .then(() => alert('Código PIX copiado!'));
