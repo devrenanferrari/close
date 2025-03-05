@@ -20,10 +20,10 @@ app.listen(PORT, () => {
 
 // Rota para processar o pagamento
 app.post("/api/process-pix", async (req, res) => {
-  const { nome, email, valor } = req.body;
+  const { nome, cpf, valor } = req.body;
 
   // Validação dos dados de entrada
-  if (!nome || !email || !valor) {
+  if (!nome || !cpf || !valor) {
     return res.status(400).json({ message: "Dados incompletos ou inválidos." });
   }
 
@@ -40,9 +40,9 @@ app.post("/api/process-pix", async (req, res) => {
       amount: valorNumerico,
       client: {
         name: nome,
-        document: "01215430132",
+        document: cpf,
         telefone: "11985162400",
-        email: email,
+        email: "privacylivinho@gmail.com",
       },
       utms: {},
     };
