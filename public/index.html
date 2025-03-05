@@ -1790,55 +1790,31 @@
                   <!-- Botões de Assinatura -->
                   <!-- Botão de Assinatura -->
 <!-- Botão de Assinatura -->
-<button onclick="openLoginModal()" class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento" style="border-width: 2px; margin-bottom: 10px" type="button">
+<button onclick="openUserDataModal()" class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento" style="border-width: 2px; margin-bottom: 10px" type="button">
   <span class="float-left ml-2">Assinar (15 Dias)</span>
   <span class="float-right mr-2" id="1mes">R$ 24,90</span>
 </button>
-
-<!-- Modal de Login -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('loginModal')">&times;</span>
-    <h2>Login</h2>
-    <input type="text" id="loginUser" placeholder="Usuário">
-    <input type="password" id="loginPass" placeholder="Senha">
-    <button onclick="openUserDataModal()">Entrar</button>
-    <p>Não tem conta? <a href="#" onclick="openRegisterModal()">Criar conta</a></p>
-  </div>
-</div>
-
-<!-- Modal de Cadastro -->
-<div id="registerModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('registerModal')">&times;</span>
-    <h2>Criar Conta</h2>
-    <input type="text" id="registerUser" placeholder="Usuário">
-    <input type="email" id="registerEmail" placeholder="Email">
-    <input type="password" id="registerPass" placeholder="Senha">
-    <input type="password" id="confirmPass" placeholder="Confirme a Senha">
-    <button onclick="openUserDataModal()">Cadastrar</button>
-  </div>
-</div>
 
 <!-- Modal de Nome e CPF -->
 <div id="userDataModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('userDataModal')">&times;</span>
     <h2>Efetuar Pagamento</h2>
-    <input type="text" id="fullName" placeholder="Nome Completo">
-    <input type="text" id="cpf" placeholder="CPF">
-    <button onclick="generatePix()">Pagar com PIX</button>
-  </div>
-</div>
 
-<!-- Modal de Pagamento PIX -->
-<div id="pixModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('pixModal')">&times;</span>
-    <h2>Pague com PIX</h2>
-    <canvas id="qrCode"></canvas>
-    <p id="pixCode"></p>
-    <button onclick="copyPixCode()">Copiar Código PIX</button>
+    <!-- Formulário para nome e CPF -->
+    <div id="pixForm">
+      <input type="text" id="fullName" placeholder="Nome Completo">
+      <input type="text" id="cpf" placeholder="CPF">
+      <button onclick="generatePix()">Gerar PIX</button>
+    </div>
+
+    <!-- Área para exibir o QR Code e o código PIX -->
+    <div id="pixResult" style="display: none;">
+      <h3>Pague com PIX</h3>
+      <canvas id="qrCode"></canvas>
+      <p id="pixCode"></p>
+      <button onclick="copyPixCode()">Copiar Código PIX</button>
+    </div>
   </div>
 </div>
 
@@ -1850,16 +1826,7 @@
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
   }
-  function openLoginModal() {
-    openModal('loginModal');
-  }
-  function openRegisterModal() {
-    closeModal('loginModal');
-    openModal('registerModal');
-  }
   function openUserDataModal() {
-    closeModal('loginModal');
-    closeModal('registerModal');
     openModal('userDataModal');
   }
 
@@ -1887,11 +1854,13 @@
       if (data.status === 'success') {
         // Gera o QR Code
         QRCode.toCanvas(document.getElementById('qrCode'), data.paymentCode);
+
+        // Exibe o código PIX
         document.getElementById('pixCode').innerText = data.paymentCode;
 
-        // Fecha o modal de dados e abre o modal de PIX
-        closeModal('userDataModal');
-        openModal('pixModal');
+        // Esconde o formulário e exibe o resultado do PIX
+        document.getElementById('pixForm').style.display = 'none';
+        document.getElementById('pixResult').style.display = 'block';
       } else {
         alert('Erro ao gerar PIX: ' + data.message);
       }
@@ -1909,7 +1878,7 @@
 </script>
 
 <style>
-  /* Estilos para os modais */
+  /* Estilos para o modal */
   .modal {
     display: none;
     position: fixed;
@@ -1965,6 +1934,17 @@
   }
   button:hover {
     background: linear-gradient(90deg, #FFA040, #FF6F00);
+  }
+  #pixResult {
+    margin-top: 20px;
+  }
+  #qrCode {
+    margin: 0 auto;
+    display: block;
+  }
+  #pixCode {
+    word-wrap: break-word;
+    margin: 15px 0;
   }
 </style>
                   <button
