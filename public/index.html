@@ -1,0 +1,2429 @@
+<html
+  lang="pt-BR"
+  style="width: 100% !important; margin: 0 !important; padding: 0 !important"
+>
+  <head>
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    <script>
+      window.pixelId = "67c47847e3dca81ea28acb7c";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+      /* Estilo para o botão pulsante */
+      .pulsante {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        animation: pulse 1.5s infinite;
+      }
+
+      /* Animação de pulsação */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+
+    <style type="text/css">
+      .swal-icon--error {
+        border-color: #f27474;
+        -webkit-animation: animateErrorIcon 0.5s;
+        animation: animateErrorIcon 0.5s;
+      }
+
+      .swal-icon--error__x-mark {
+        position: relative;
+        display: block;
+        -webkit-animation: animateXMark 0.5s;
+        animation: animateXMark 0.5s;
+      }
+
+      .swal-icon--error__line {
+        position: absolute;
+        height: 5px;
+        width: 47px;
+        background-color: #f27474;
+        display: block;
+        top: 37px;
+        border-radius: 2px;
+      }
+
+      .swal-icon--error__line--left {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        left: 17px;
+      }
+
+      .swal-icon--error__line--right {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        right: 16px;
+      }
+
+      @-webkit-keyframes animateErrorIcon {
+        0% {
+          -webkit-transform: rotateX(100deg);
+          transform: rotateX(100deg);
+          opacity: 0;
+        }
+
+        to {
+          -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+          opacity: 1;
+        }
+      }
+
+      @keyframes animateErrorIcon {
+        0% {
+          -webkit-transform: rotateX(100deg);
+          transform: rotateX(100deg);
+          opacity: 0;
+        }
+
+        to {
+          -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+          opacity: 1;
+        }
+      }
+
+      @-webkit-keyframes animateXMark {
+        0% {
+          -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+          margin-top: 26px;
+          opacity: 0;
+        }
+
+        50% {
+          -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+          margin-top: 26px;
+          opacity: 0;
+        }
+
+        80% {
+          -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+          margin-top: -6px;
+        }
+
+        to {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          margin-top: 0;
+          opacity: 1;
+        }
+      }
+
+      @keyframes animateXMark {
+        0% {
+          -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+          margin-top: 26px;
+          opacity: 0;
+        }
+
+        50% {
+          -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+          margin-top: 26px;
+          opacity: 0;
+        }
+
+        80% {
+          -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+          margin-top: -6px;
+        }
+
+        to {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          margin-top: 0;
+          opacity: 1;
+        }
+      }
+
+      .swal-icon--warning {
+        border-color: #f8bb86;
+        -webkit-animation: pulseWarning 0.75s infinite alternate;
+        animation: pulseWarning 0.75s infinite alternate;
+      }
+
+      .swal-icon--warning__body {
+        width: 5px;
+        height: 47px;
+        top: 10px;
+        border-radius: 2px;
+        margin-left: -2px;
+      }
+
+      .swal-icon--warning__body,
+      .swal-icon--warning__dot {
+        position: absolute;
+        left: 50%;
+        background-color: #f8bb86;
+      }
+
+      .swal-icon--warning__dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-left: -4px;
+        bottom: -11px;
+      }
+
+      @-webkit-keyframes pulseWarning {
+        0% {
+          border-color: #f8d486;
+        }
+
+        to {
+          border-color: #f8bb86;
+        }
+      }
+
+      @keyframes pulseWarning {
+        0% {
+          border-color: #f8d486;
+        }
+
+        to {
+          border-color: #f8bb86;
+        }
+      }
+
+      .swal-icon--success {
+        border-color: #a5dc86;
+      }
+
+      .swal-icon--success:after,
+      .swal-icon--success:before {
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        width: 60px;
+        height: 120px;
+        background: #fff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      .swal-icon--success:before {
+        border-radius: 120px 0 0 120px;
+        top: -7px;
+        left: -33px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transform-origin: 60px 60px;
+        transform-origin: 60px 60px;
+      }
+
+      .swal-icon--success:after {
+        border-radius: 0 120px 120px 0;
+        top: -11px;
+        left: 30px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transform-origin: 0 60px;
+        transform-origin: 0 60px;
+        -webkit-animation: rotatePlaceholder 4.25s ease-in;
+        animation: rotatePlaceholder 4.25s ease-in;
+      }
+
+      .swal-icon--success__ring {
+        width: 80px;
+        height: 80px;
+        border: 4px solid hsla(98, 55%, 69%, 0.2);
+        border-radius: 50%;
+        box-sizing: content-box;
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        z-index: 2;
+      }
+
+      .swal-icon--success__hide-corners {
+        width: 5px;
+        height: 90px;
+        background-color: #fff;
+        padding: 1px;
+        position: absolute;
+        left: 28px;
+        top: 8px;
+        z-index: 1;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      .swal-icon--success__line {
+        height: 5px;
+        background-color: #a5dc86;
+        display: block;
+        border-radius: 2px;
+        position: absolute;
+        z-index: 2;
+      }
+
+      .swal-icon--success__line--tip {
+        width: 25px;
+        left: 14px;
+        top: 46px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-animation: animateSuccessTip 0.75s;
+        animation: animateSuccessTip 0.75s;
+      }
+
+      .swal-icon--success__line--long {
+        width: 47px;
+        right: 8px;
+        top: 38px;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-animation: animateSuccessLong 0.75s;
+        animation: animateSuccessLong 0.75s;
+      }
+
+      @-webkit-keyframes rotatePlaceholder {
+        0% {
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+
+        5% {
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+
+        12% {
+          -webkit-transform: rotate(-405deg);
+          transform: rotate(-405deg);
+        }
+
+        to {
+          -webkit-transform: rotate(-405deg);
+          transform: rotate(-405deg);
+        }
+      }
+
+      @keyframes rotatePlaceholder {
+        0% {
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+
+        5% {
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+
+        12% {
+          -webkit-transform: rotate(-405deg);
+          transform: rotate(-405deg);
+        }
+
+        to {
+          -webkit-transform: rotate(-405deg);
+          transform: rotate(-405deg);
+        }
+      }
+
+      @-webkit-keyframes animateSuccessTip {
+        0% {
+          width: 0;
+          left: 1px;
+          top: 19px;
+        }
+
+        54% {
+          width: 0;
+          left: 1px;
+          top: 19px;
+        }
+
+        70% {
+          width: 50px;
+          left: -8px;
+          top: 37px;
+        }
+
+        84% {
+          width: 17px;
+          left: 21px;
+          top: 48px;
+        }
+
+        to {
+          width: 25px;
+          left: 14px;
+          top: 45px;
+        }
+      }
+
+      @keyframes animateSuccessTip {
+        0% {
+          width: 0;
+          left: 1px;
+          top: 19px;
+        }
+
+        54% {
+          width: 0;
+          left: 1px;
+          top: 19px;
+        }
+
+        70% {
+          width: 50px;
+          left: -8px;
+          top: 37px;
+        }
+
+        84% {
+          width: 17px;
+          left: 21px;
+          top: 48px;
+        }
+
+        to {
+          width: 25px;
+          left: 14px;
+          top: 45px;
+        }
+      }
+
+      @-webkit-keyframes animateSuccessLong {
+        0% {
+          width: 0;
+          right: 46px;
+          top: 54px;
+        }
+
+        65% {
+          width: 0;
+          right: 46px;
+          top: 54px;
+        }
+
+        84% {
+          width: 55px;
+          right: 0;
+          top: 35px;
+        }
+
+        to {
+          width: 47px;
+          right: 8px;
+          top: 38px;
+        }
+      }
+
+      @keyframes animateSuccessLong {
+        0% {
+          width: 0;
+          right: 46px;
+          top: 54px;
+        }
+
+        65% {
+          width: 0;
+          right: 46px;
+          top: 54px;
+        }
+
+        84% {
+          width: 55px;
+          right: 0;
+          top: 35px;
+        }
+
+        to {
+          width: 47px;
+          right: 8px;
+          top: 38px;
+        }
+      }
+
+      .swal-icon--info {
+        border-color: #c9dae1;
+      }
+
+      .swal-icon--info:before {
+        width: 5px;
+        height: 29px;
+        bottom: 17px;
+        border-radius: 2px;
+        margin-left: -2px;
+      }
+
+      .swal-icon--info:after,
+      .swal-icon--info:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        background-color: #c9dae1;
+      }
+
+      .swal-icon--info:after {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        margin-left: -3px;
+        top: 19px;
+      }
+
+      .swal-icon {
+        width: 80px;
+        height: 80px;
+        border-width: 4px;
+        border-style: solid;
+        border-radius: 50%;
+        padding: 0;
+        position: relative;
+        box-sizing: content-box;
+        margin: 20px auto;
+      }
+
+      .swal-icon:first-child {
+        margin-top: 32px;
+      }
+
+      .swal-icon--custom {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        border: none;
+        border-radius: 0;
+      }
+
+      .swal-icon img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .swal-title {
+        color: rgba(0, 0, 0, 0.65);
+        font-weight: 600;
+        text-transform: none;
+        position: relative;
+        display: block;
+        padding: 13px 16px;
+        font-size: 27px;
+        line-height: normal;
+        text-align: center;
+        margin-bottom: 0;
+      }
+
+      .swal-title:first-child {
+        margin-top: 26px;
+      }
+
+      .swal-title:not(:first-child) {
+        padding-bottom: 0;
+      }
+
+      .swal-title:not(:last-child) {
+        margin-bottom: 13px;
+      }
+
+      .swal-text {
+        font-size: 16px;
+        position: relative;
+        float: none;
+        line-height: normal;
+        vertical-align: top;
+        text-align: left;
+        display: inline-block;
+        margin: 0;
+        padding: 0 10px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.64);
+        max-width: calc(100% - 20px);
+        overflow-wrap: break-word;
+        box-sizing: border-box;
+      }
+
+      .swal-text:first-child {
+        margin-top: 45px;
+      }
+
+      .swal-text:last-child {
+        margin-bottom: 45px;
+      }
+
+      .swal-footer {
+        text-align: right;
+        padding-top: 13px;
+        margin-top: 13px;
+        padding: 13px 16px;
+        border-radius: inherit;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .swal-button-container {
+        margin: 5px;
+        display: inline-block;
+        position: relative;
+      }
+
+      .swal-button {
+        background-color: #7cd1f9;
+        color: #fff;
+        border: none;
+        box-shadow: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 24px;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .swal-button:not([disabled]):hover {
+        background-color: #78cbf2;
+      }
+
+      .swal-button:active {
+        background-color: #70bce0;
+      }
+
+      .swal-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(43, 114, 165, 0.29);
+      }
+
+      .swal-button[disabled] {
+        opacity: 0.5;
+        cursor: default;
+      }
+
+      .swal-button::-moz-focus-inner {
+        border: 0;
+      }
+
+      .swal-button--cancel {
+        color: #555;
+        background-color: #efefef;
+      }
+
+      .swal-button--cancel:not([disabled]):hover {
+        background-color: #e8e8e8;
+      }
+
+      .swal-button--cancel:active {
+        background-color: #d7d7d7;
+      }
+
+      .swal-button--cancel:focus {
+        box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(116, 136, 150, 0.29);
+      }
+
+      .swal-button--danger {
+        background-color: #e64942;
+      }
+
+      .swal-button--danger:not([disabled]):hover {
+        background-color: #df4740;
+      }
+
+      .swal-button--danger:active {
+        background-color: #cf423b;
+      }
+
+      .swal-button--danger:focus {
+        box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(165, 43, 43, 0.29);
+      }
+
+      .swal-content {
+        padding: 0 20px;
+        margin-top: 20px;
+        font-size: medium;
+      }
+
+      .swal-content:last-child {
+        margin-bottom: 20px;
+      }
+
+      .swal-content__input,
+      .swal-content__textarea {
+        -webkit-appearance: none;
+        background-color: #fff;
+        border: none;
+        font-size: 14px;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.14);
+        padding: 10px 13px;
+        border-radius: 2px;
+        transition: border-color 0.2s;
+      }
+
+      .swal-content__input:focus,
+      .swal-content__textarea:focus {
+        outline: none;
+        border-color: #6db8ff;
+      }
+
+      .swal-content__textarea {
+        resize: vertical;
+      }
+
+      .swal-button--loading {
+        color: transparent;
+      }
+
+      .swal-button--loading ~ .swal-button__loader {
+        opacity: 1;
+      }
+
+      .swal-button__loader {
+        position: absolute;
+        height: auto;
+        width: 43px;
+        z-index: 2;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .swal-button__loader div {
+        display: inline-block;
+        float: none;
+        vertical-align: baseline;
+        width: 9px;
+        height: 9px;
+        padding: 0;
+        border: none;
+        margin: 2px;
+        opacity: 0.4;
+        border-radius: 7px;
+        background-color: hsla(0, 0%, 100%, 0.9);
+        transition: background 0.2s;
+        -webkit-animation: swal-loading-anim 1s infinite;
+        animation: swal-loading-anim 1s infinite;
+      }
+
+      .swal-button__loader div:nth-child(3n + 2) {
+        -webkit-animation-delay: 0.15s;
+        animation-delay: 0.15s;
+      }
+
+      .swal-button__loader div:nth-child(3n + 3) {
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+      }
+
+      @-webkit-keyframes swal-loading-anim {
+        0% {
+          opacity: 0.4;
+        }
+
+        20% {
+          opacity: 0.4;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0.4;
+        }
+      }
+
+      @keyframes swal-loading-anim {
+        0% {
+          opacity: 0.4;
+        }
+
+        20% {
+          opacity: 0.4;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0.4;
+        }
+      }
+
+      .swal-overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 0;
+        overflow-y: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 10000;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .swal-overlay:before {
+        content: " ";
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+      }
+
+      .swal-overlay--show-modal {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .swal-overlay--show-modal .swal-modal {
+        opacity: 1;
+        pointer-events: auto;
+        box-sizing: border-box;
+        -webkit-animation: showSweetAlert 0.3s;
+        animation: showSweetAlert 0.3s;
+        will-change: transform;
+      }
+
+      .swal-modal {
+        width: 478px;
+        opacity: 0;
+        pointer-events: none;
+        background-color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        position: static;
+        margin: 20px auto;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        z-index: 10001;
+        transition: opacity 0.2s, -webkit-transform 0.3s;
+        transition: transform 0.3s, opacity 0.2s;
+        transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s;
+      }
+
+      @media (max-width: 500px) {
+        .swal-modal {
+          width: calc(100% - 20px);
+        }
+      }
+
+      @-webkit-keyframes showSweetAlert {
+        0% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+
+        1% {
+          -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+        }
+
+        45% {
+          -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+        }
+
+        80% {
+          -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+        }
+
+        to {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+
+      @keyframes showSweetAlert {
+        0% {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+
+        1% {
+          -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+        }
+
+        45% {
+          -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+        }
+
+        80% {
+          -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+        }
+
+        to {
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+      }
+      .center-image {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+    <style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid:not(.vjs-audio-only-mode) {
+        padding-top: 56.25%;
+      }
+    </style>
+    <!-- Required meta tags -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Inscreva-se para ganhar dinheiro interagindo com seus fãs! Compartilhe conteúdo exclusivo."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="privacy, sejaprivacy, privacidade, onlyfans, nudes, rede social paga, ganhar dinheiro, renda extra, privacy nudes, vender privacy, ganhar na privacy, cadastrar privacy, conta privacy, Vale a pena privacy, Como ganhar na privacy, onlyfans privacy, onlyfans brasileiro, privacy nudz, nudes de famosas. Bume, Clozzy, Quanto ganho na privacy"
+    />
+    <meta property="og:title" content="Privacy" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:description" content="Privacidade & Liberdade." />
+    <meta
+      property="og:image"
+      content="https://privacy.com.br/assets/img/logo/logo_colorido.jpg"
+    />
+    <meta name="kdt:page" content="profile" />
+    <title>Privacy | Mc Livinho</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://privacy.com.br/assets/img/logo/logo.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://privacy.com.br/assets/img/logo/logo.png"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="https://privacy.com.br/assets/img/logo/logo.png"
+    />
+    <!-- Fonts -->
+    <style type="text/css">
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin/600/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin-ext/600/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic-ext/600/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/vietnamese/600/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic/600/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic/700/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic-ext/700/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin-ext/700/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/vietnamese/700/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin/700/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic/800/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic-ext/800/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin/800/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/vietnamese/800/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 800;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin-ext/800/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 900;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic-ext/900/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 900;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/vietnamese/900/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 900;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/cyrillic/900/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 900;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin-ext/900/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 900;
+        src: url(https://privacyoficial.online/cf-fonts/s/montserrat/5.0.16/latin/900/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+    </style>
+    <style type="text/css">
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/latin/400/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/latin-ext/400/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/cyrillic-ext/400/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/cyrillic/400/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/greek/400/normal.woff2);
+        unicode-range: U+0370-03FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/vietnamese/400/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/greek-ext/400/normal.woff2);
+        unicode-range: U+1F00-1FFF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/latin-ext/500/normal.woff2);
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/cyrillic/500/normal.woff2);
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/vietnamese/500/normal.woff2);
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169,
+          U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309,
+          U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/cyrillic-ext/500/normal.woff2);
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF,
+          U+A640-A69F, U+FE2E-FE2F;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/greek-ext/500/normal.woff2);
+        unicode-range: U+1F00-1FFF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/greek/500/normal.woff2);
+        unicode-range: U+0370-03FF;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        src: url(https://privacyoficial.online/cf-fonts/s/roboto/5.0.11/latin/500/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+    </style>
+    <link rel="stylesheet" href="./index_files/fontisto-brands.min.css" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/rAgGi2gzJvFk.css" />
+    <link
+      rel="stylesheet"
+      href="css/5tkqw9ejxaW7.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/7o27ew5ne5YC.css" />
+    <link rel="stylesheet" href="./index_files/core.css" />
+    <link
+      rel="stylesheet"
+      href="css/FnxvZMqvX5s7.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/FXv8Qky2Py7K.css" />
+    <link rel="stylesheet" href="css/dRCF748WMq98.css" />
+    <link rel="stylesheet" href="css/uKNLWYJ7gRoJ.css" />
+    <style type="text/css">
+      @font-face {
+        font-family: Abel;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/abel/5.0.11/latin/400/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="css/86A9y9l2z3LA.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="css/uUa0EeVUcoqY.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="css/aVqqOTCIXT3R.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="css/FoRyrwvCX4sA.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="css/7YeCXWsl3mkY.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="css/AxDjjZ6Lbjnl.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="css/VcDwQzCl44AA.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="css/AluXui6PXbzf.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/zUEQvq5vxMoB.css" />
+    <link rel="stylesheet" href="css/CFbxot83AWas.css" />
+    <style>
+      * {
+        -webkit-overflow-scrolling: auto !important;
+      }
+
+      :root {
+        --see-more: "Ver Mais";
+        --see-less: "Ver Menos";
+        --show-more: "mostrar mais";
+        --show-less: "mostrar menos";
+      }
+
+      .animate {
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition-timing-function: cubic-bezier(0.94, -0.03, 0.11, 1.02);
+        -webkit-transition-timing-function: cubic-bezier(
+          0.94,
+          -0.03,
+          0.11,
+          1.02
+        );
+        -moz-transition-timing-function: cubic-bezier(0.94, -0.03, 0.11, 1.02);
+      }
+
+      .hide-navbar {
+        transform: translateY(-300px);
+      }
+    </style>
+    <style type="text/css">
+      @font-face {
+        font-family: Abel;
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://privacyoficial.online/cf-fonts/s/abel/5.0.11/latin/400/normal.woff2);
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        font-display: swap;
+      }
+    </style>
+    <link rel="stylesheet" href="css/NPdbxEnIruAr.css" />
+    <style>
+      .parent {
+        width: 100%;
+        white-space: nowrap;
+        box-sizing: border-box;
+        overflow-x: auto;
+        position: relative;
+        padding-top: 8px;
+        padding-bottom: 10px;
+      }
+
+      .child {
+        display: inline-block;
+        text-align: center;
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-bottom: 12px;
+        padding-left: 1px;
+      }
+
+      .has-tooltip {
+        display: flex;
+      }
+
+      .icon-chat,
+      .icon-tip {
+        margin-right: 10px;
+
+        width: 26x;
+        height: 26px;
+        margin-top: 4px;
+        padding: 2px;
+        border-radius: 50%;
+        border: 1.5px solid #919191 !important;
+        align-items: center;
+        display: flex;
+      }
+
+      .icon-tip {
+        cursor: pointer;
+      }
+    </style>
+
+    <style type="text/css" id="operaUserStyle"></style>
+  </head>
+
+  <body>
+    <div
+      id="loadProgress"
+      style="
+        position: fixed;
+        background-color: white;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 999999999999;
+        display: none;
+      "
+    >
+      <p
+        id="progressBar"
+        style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        "
+      >
+        <progress
+          style="width: 300px; height: 100px; vertical-align: middle"
+          value="0"
+          max="100"
+        ></progress>
+        <span style="font-size: 30px; font-weight: bold">0%</span>
+      </p>
+    </div>
+    <div class="infraloader"></div>
+    <div class="app-overlay"></div>
+    <div id="app-teleport"></div>
+    <!-- Desktop Navbar -->
+    <div
+      id="main-navbar"
+      class="navbar isl-inline-flex is-transparent is-hidden-mobile no-shadow"
+      style="z-index: 1000"
+    >
+      <div class="container is-fluid">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <img
+              src="logo_privacy.png"
+              width="112"
+              height="28"
+              style="margin-top: 20px; margin-left: 19px"
+              alt=""
+            />
+          </a>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-start"></div>
+          <div class="navbar-end">
+            <!-- MENSAGENS -->
+            <div class="navbar-item is-icon">
+              <a class="icon-link" href="#">
+                <div>
+                  <privacy-web-chatnotifier
+                    app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0="
+                    token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI"
+                    enabled-push-notification="enabled-push-notification"
+                    alert-width="16"
+                    alert-height="15"
+                    top="14"
+                    right="4"
+                    stop-connection-if-hidden="true"
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                      "
+                      slot="icon-content"
+                    >
+                      <img src="./index_files/Chat.svg" />
+                    </div>
+                  </privacy-web-chatnotifier>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tablet Navbar -->
+    <nav
+      class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-tablet animate no-shadow"
+      aria-label="main navigation"
+      style="z-index: 1000"
+    >
+      <div class="center-image" style="padding-bottom: 0.6rem">
+        <img
+          src="logo_privacy.png"
+          style="max-height: 50px; height: 60px; animation: none"
+          alt=""
+        />
+
+        <div class="align-self-end d-inline-flex float-right">
+          <div class="navbar-item is-icon">
+            <a class="icon-link" href="#">
+              <div>
+                <privacy-web-chatnotifier
+                  app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0="
+                  token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI"
+                  enabled-push-notification="enabled-push-notification"
+                  alert-width="16"
+                  alert-height="15"
+                  top="14"
+                  right="4"
+                  stop-connection-if-hidden="true"
+                >
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                    slot="icon-content"
+                  >
+                    <img src="./index_files/Chat.svg" />
+                  </div>
+                </privacy-web-chatnotifier>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Phone Navbar -->
+    <nav
+      id="mobile-navbar"
+      class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-tablet animate no-shadow"
+      aria-label="main navigation"
+      style="z-index: 1000"
+    >
+      <div class="center-image" style="padding-bottom: 0.6rem">
+        <img
+          src="logo_privacy.png"
+          style="max-height: 50px; height: 60px; animation: none"
+          alt=""
+        />
+
+        <div class="align-self-end d-inline-flex float-right"></div>
+      </div>
+    </nav>
+    <div class="nav-drop-overlay" id="nav-drop-overlay"></div>
+    <div class="container-inner view-wrapper">
+      <!-- Container -->
+      <input
+        type="hidden"
+        id="ClienteId"
+        value="d7391a4c-2ef8-4df3-b156-6b834aca71f3"
+      />
+      <input
+        type="hidden"
+        id="nomePerfil"
+        name="nomePerfil"
+        value="kerolaychaves"
+      />
+      <input type="hidden" id="filterMosaico" name="filterMosaico" value="" />
+      <input type="hidden" id="MensagemBume" />
+      <input type="hidden" id="Mensagem" />
+      <input
+        type="hidden"
+        id="SilenciarPerfilId"
+        name="SilenciarPerfilId"
+        value=""
+      />
+      <div class="scroll-x-hidden-mobile-mosaic">
+        <div class="container">
+          <div
+            class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row"
+            style="
+              background-image: linear-gradient(
+                  0deg,
+                  rgba(0, 0, 0, 0.9),
+                  transparent
+                ),
+                url('images/banner.webp');
+            "
+          >
+            <div class="align-self-end mb-n3 pb-1 order-last">
+              <ul class="mr-4 row">
+                <li>
+                  <strong class="profile-numbers ml-2">
+                    <span class="text-light text-counts-profile">
+                      97 posts
+                    </span>
+                  </strong>
+                </li>
+                <li>
+                  <strong class="profile-numbers ml-2"
+                    ><span class="text-light text-counts-profile"
+                      >•</span
+                    ></strong
+                  >
+                </li>
+                <li>
+                  <strong class="profile-numbers ml-2">
+                    <span class="text-light text-counts-profile">
+                      370k likes
+                    </span>
+                  </strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="pl-3 pr-4 row">
+            <div class="user-img mt-n5 mr-1">
+              <div style="left: -4px; top: -4px">
+                <div>
+                  <figure class="d-inline-block bg-img-profile">
+                    <img
+                      class="avatar rounded-circle"
+                      src="images/profile.webp"
+                      id="FotoPerfil"
+                      style="max-width: 96px; min-height: 96px; min-width: 96px"
+                    />
+                    <div class="border-profile"></div>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div
+              class="px-1 flex-column align-items-start d-flex justify-content-center"
+            >
+              <div class="align-items-center d-flex mb-n2 user-title">
+                <div class="d-inline-block word-clamp-40 mb-0 mr-1">
+                  <div class="d-inline-block word-clamp-40">
+                    <h5
+                      class="d-inline-block item-title mb-0 mr-1 word-clamp-40 text-profile-one"
+                    >
+                      Mc Livinho
+                    </h5>
+                  </div>
+                </div>
+                <div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="orange"
+                    class="bi bi-check-all"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <ul class="entry-meta menu-z-index">
+                <li
+                  class="meta-privacy text-muted d-inline-block position-relative"
+                >
+                  <div class="mt-1 mb-2 word-clamp-40">
+                    <h6
+                      class="text-nprofile text-ellipsis item-title mb-2 mt-0 word-clamp-40 text-profile-two"
+                    >
+                      @mclivinho
+                    </h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mb-n2 profile-description">
+              <input
+                type="checkbox"
+                class="read-more-checker"
+                id="read-more-checker"
+              />
+              <div class="limited l-200">
+                <p class="margin-left-14">
+                  Fala galera!<br />
+
+                  Prazer Sou o Mc Livinho, e estou super animado por começar
+                  essa jornada incrível com vocês no meu Privacy! 🎉<br /><br />
+
+                  Estou trazendo alguns conteúdos exclusivos, incluindo vídeos
+                  que já gravei com algumas namoradas, danças sensuais nús e até
+                  minha rotina durante o banho. 😈<br />
+
+                  Te espero aqui! 😚
+                </p>
+                <div class="bottom"></div>
+              </div>
+              <label
+                for="read-more-checker"
+                class="view-more-button text-muted pl-3"
+              ></label>
+            </div>
+
+            <div id="beneficios_assinatura" style="display: none">
+              <div class="col-12 beneficios">
+                <p class="margin-left-14 text-muted font-15">
+                  ASSINE E TENHA OS SEGUINTES BENEFÍCIOS
+                </p>
+                <p class="margin-left-14">
+                  <i class="fal fa-check"> </i> Acesso ao conteúdo
+                </p>
+                <p class="margin-left-14">
+                  <i class="fal fa-check"> </i> Chat exclusivo com o criador
+                </p>
+                <p class="margin-left-14">
+                  <i class="fal fa-check"> </i> Cancele a qualquer hora
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="pl-3 pr-2 row">
+            <div class="col-12">
+              <div class="text-muted mb-3 profile-signatures">
+                <br />
+                <h6>ASSINE AGORA:</h6>
+                <div class="settings-panel">
+                  <!-- Botões de Assinatura -->
+                  <button
+                    onclick="redirecionar('1mes', 'https://pay.compraprivacy.shop/P5LNZ8JR0oygaRy')"
+                    class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento"
+                    style="border-width: 2px; margin-bottom: 10px"
+                    type="button"
+                  >
+                    <span class="float-left ml-2">Assinar (15 Dias)</span>
+                    <span class="float-right mr-2" id="1mes">R$ 24,90</span>
+                  </button>
+
+                  <button
+                    onclick="redirecionar('3meses', 'https://pay.compraprivacy.shop/JqoR32W1qzaZVj5')"
+                    class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento"
+                    style="border-width: 2px; margin-bottom: 10px"
+                    type="button"
+                  >
+                    <span class="float-left ml-2">Assinar (1 Mês)</span>
+                    <span class="float-right mr-2" id="3meses">R$ 39,90</span>
+                  </button>
+
+                  <script>
+                    function getUrlWithUtm(baseUrl) {
+                      let params = window.location.search;
+                      return params
+                        ? baseUrl +
+                            (baseUrl.includes("?") ? "&" : "?") +
+                            params.substring(1)
+                        : baseUrl;
+                    }
+
+                    function redirecionar(id, url) {
+                      window.location.href = getUrlWithUtm(url);
+                    }
+                  </script>
+
+                  <div class="is-12 mt-3">
+                    <div class="row text-center text-muted">
+                      <div class="col-12">
+                        <div class="font-15">
+                          <span
+                            onclick="EfetuarPagamento('d7391a4c-2ef8-4df3-b156-6b834aca71f3', '', '19,90', '', '', 'Mensal', '', 'kerolaychaves', 'Kerolay Chaves', 'https://image.privacy.com.br/eyJidWNrZXQiOiJzZXJ2ZXJsZXNzaW1hZ2VoYW5kbGVyc291cmNlcHJpdmFjeSIsImtleSI6IjIwMjMtMTItMzEvNmU4ZjA2ODAtZTcxMS00ZDQ4LWE3NDItYTc3YWFjNTNlYjA3LTE3MDQwMjY2NzAwMjMuanBlZyJ9', 'https://image.privacy.com.br/eyJidWNrZXQiOiJzZXJ2ZXJsZXNzaW1hZ2VoYW5kbGVyc291cmNlcHJpdmFjeSIsImtleSI6IjIwMjMtMTItMjcvMTA1ZjYyMTgtNzRjOS00YzQzLTgzZWYtYmE1MzgyN2ZlMTdkLTE3MDM2Mzg2NjQzNTYuanBlZyJ9')"
+                            style="cursor: pointer"
+                          >
+                            97 posts
+                          </span>
+                          <span class="ml-2 mr-2"> • </span>
+                          <span
+                            onclick="EfetuarPagamento('d7391a4c-2ef8-4df3-b156-6b834aca71f3', '', '19,90', '', '', 'Mensal', '', 'kerolaychaves', 'Kerolay Chaves', 'https://image.privacy.com.br/eyJidWNrZXQiOiJzZXJ2ZXJsZXNzaW1hZ2VoYW5kbGVyc291cmNlcHJpdmFjeSIsImtleSI6IjIwMjMtMTItMzEvNmU4ZjA2ODAtZTcxMS00ZDQ4LWE3NDItYTc3YWFjNTNlYjA3LTE3MDQwMjY2NzAwMjMuanBlZyJ9', 'https://image.privacy.com.br/eyJidWNrZXQiOiJzZXJ2ZXJsZXNzaW1hZ2VoYW5kbGVyc291cmNlcHJpdmFjeSIsImtleSI6IjIwMjMtMTItMjcvMTA1ZjYyMTgtNzRjOS00YzQzLTgzZWYtYmE1MzgyN2ZlMTdkLTE3MDM2Mzg2NjQzNTYuanBlZyJ9')"
+                            style="cursor: pointer"
+                          >
+                            53 fotos
+                          </span>
+                          <span class="ml-2 mr-2"> • </span>
+                          <span
+                            onclick="EfetuarPagamento('d7391a4c-2ef8-4df3-b156-6b834aca71f3', '', '19,90', '', '', 'Mensal', '', 'kerolaychaves', 'Kerolay Chaves', 'https://image.privacy.com.br/eyJidWNrZXQiOiJzZXJ2ZXJsZXNzaW1hZ2VoYW5kbGVyc291cmNlcHJpdmFjeSIsImtleSI6IjIwMjMtMTItMzEvNmU4ZjA2ODAtZTcxMS00ZDQ4LWE3NDItYTc3YWFjNTNlYjA3LTE3MDQwMjY2NzAwMjMuanBlZyJ9', 'https://image.privacy.com.br/eyJidWNrZXQiOiJzZXJ2ZXJsZXNzaW1hZ2VoYW5kbGVyc291cmNlcHJpdmFjeSIsImtleSI6IjIwMjMtMTItMjcvMTA1ZjYyMTgtNzRjOS00YzQzLTgzZWYtYmE1MzgyN2ZlMTdkLTE3MDM2Mzg2NjQzNTYuanBlZyJ9')"
+                            style="cursor: pointer"
+                          >
+                            44 vídeos
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="row videopostagem fullwidth"
+                      style="
+                        position: relative;
+                        width: 108%;
+                        overflow: hidden;
+                        border-radius: 10px;
+                      "
+                    >
+                      <!-- Vídeo de fundo -->
+                      <img src="images/2.webp" />
+
+                      <!-- Conteúdo centralizado sobre o vídeo -->
+                      <div
+                        class="overlay-content"
+                        style="
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          display: flex;
+                          flex-direction: column;
+                          align-items: center;
+                          justify-content: center;
+                          color: #fff;
+                          text-align: center;
+                        "
+                      >
+                        <!-- Logotipo -->
+                        <img
+                          class="col-12 imageAcima"
+                          src="images/N31zec7sia3x.png"
+                          style="height: 20%; top: 38%"
+                        />
+
+                        <!-- Texto de contagem, abaixo do logotipo -->
+                        <div
+                          class="col-12 row m-0"
+                          style="width: 100%; max-width: 500px; top: 60%"
+                        >
+                          <div class="col-5 text-right">
+                            <span class="text-light text-counts-profile"
+                              >97 posts</span
+                            >
+                          </div>
+                          <div class="col-2 text-center">
+                            <span class="text-light text-counts-profile"
+                              >•</span
+                            >
+                          </div>
+                          <div class="col-5 text-left">
+                            <span class="text-light text-counts-profile"
+                              >370k likes</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <div
+                      class="row videopostagem fullwidth"
+                      style="
+                        position: relative;
+                        width: 108%;
+                        overflow: hidden;
+                        border-radius: 10px;
+                      "
+                    >
+                      <!-- Vídeo de fundo -->
+                      <img src="images/3.webp" />
+
+                      <!-- Conteúdo centralizado sobre o vídeo -->
+                      <div
+                        class="overlay-content"
+                        style="
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          display: flex;
+                          flex-direction: column;
+                          align-items: center;
+                          justify-content: center;
+                          color: #fff;
+                          text-align: center;
+                        "
+                      >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <div
+                      class="row videopostagem fullwidth"
+                      style="
+                        position: relative;
+                        width: 108%;
+                        overflow: hidden;
+                        border-radius: 10px;
+                      "
+                    >
+                      <!-- Vídeo de fundo -->
+                      <img src="images/4.webp" />
+
+                      <!-- Conteúdo centralizado sobre o vídeo -->
+                      <div
+                        class="overlay-content"
+                        style="
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          display: flex;
+                          flex-direction: column;
+                          align-items: center;
+                          justify-content: center;
+                          color: #fff;
+                          text-align: center;
+                        "
+                      >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <div
+                      class="row videopostagem fullwidth"
+                      style="
+                        position: relative;
+                        width: 108%;
+                        overflow: hidden;
+                        border-radius: 10px;
+                      "
+                    >
+                      <!-- Vídeo de fundo -->
+                      <video
+                        style="width: 100%; height: auto"
+                        autoplay=""
+                        muted=""
+                        loop=""
+                        playsinline=""
+                      >
+                        <source src="media/video.mp4" type="video/mp4" />
+                      </video>
+
+                      <!-- Conteúdo centralizado sobre o vídeo -->
+                      <div
+                        class="overlay-content"
+                        style="
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          display: flex;
+                          flex-direction: column;
+                          align-items: center;
+                          justify-content: center;
+                          color: #fff;
+                          text-align: center;
+                        "
+                      >
+                        <!-- Logotipo -->
+                        <img
+                          class="col-12 imageAcima"
+                          src="images/N31zec7sia3x.png"
+                          style="height: 20%; top: 38%"
+                        />
+
+                        <!-- Texto de contagem, abaixo do logotipo -->
+                        <div
+                          class="col-12 row m-0"
+                          style="width: 100%; max-width: 500px; top: 60%"
+                        >
+                          <div class="col-5 text-right">
+                            <span class="text-light text-counts-profile"></span>
+                          </div>
+                          <div class="col-2 text-center">
+                            <span class="text-light text-counts-profile"></span>
+                          </div>
+                          <div class="col-5 text-left">
+                            <span class="text-light text-counts-profile"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <br />
+
+                    <a href="#">
+                      <div class="row videopostagem fullwidth">
+                        <img
+                          class="col-12 imageAcima"
+                          src="images/N31zec7sia3x.png"
+                          style="height: 20%; top: 38%"
+                        />
+                        <div class="col-12 imageAcima" style="top: 52%">
+                          <div class="col-12 row m-0" style="top: 100%">
+                            <div class="col-5 text-right">
+                              <span class="text-light text-counts-profile"
+                                >97 posts</span
+                              >
+                            </div>
+                            <div class="col-2 text-center">
+                              <span class="text-light text-counts-profile"
+                                >•</span
+                              >
+                            </div>
+                            <div class="col-5 text-left">
+                              <span class="text-light text-counts-profile"
+                                >370k likes</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <a href="#"> </a>
+                </div>
+                <a href="#"> </a>
+              </div>
+              <a href="#"> </a>
+            </div>
+            <a href="#">
+              <div id="cancelamento-modal" class="modal is-small has-light-bg">
+                <div class="modal-background"></div>
+                <div class="modal-content">
+                  <input
+                    type="hidden"
+                    id="ClienteCancelamentoId"
+                    name="ClienteCancelamentoId"
+                    value=""
+                  />
+                  <div class="card">
+                    <div class="card-heading">
+                      <h3>Assinatura</h3>
+                      <!-- Close X button -->
+                      <div class="close-wrap">
+                        <span class="close-modal">
+                          <i class="fal fa-times"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <!-- Placeholder -->
+                      <div
+                        class="settings-wrapper settings-wrapper2"
+                        style="padding-top: 0"
+                      >
+                        <div
+                          id="overview-content"
+                          class="settings-section is-active"
+                        >
+                          <div
+                            class="content-section configuracao-perfil is-active"
+                          >
+                            <div class="settings-panel" style="padding: 0">
+                              <div class="content">
+                                <div class="settings-form">
+                                  <div
+                                    class="columns column is-12 is-multiline"
+                                    style="margin-bottom: 0"
+                                  >
+                                    <div class="column is-12">
+                                      <!--Field-->
+                                      <div class="field field-group">
+                                        <label>Motivo do cancelamento:</label>
+                                        <div class="control has-icon">
+                                          <select
+                                            name="MotivoCancelamentoId"
+                                            class="input is-fade"
+                                            id="MotivoCancelamentoId"
+                                            required=""
+                                          >
+                                            <option value="" selected="">
+                                              Selecione o motivo do cancelamento
+                                            </option>
+                                          </select>
+                                          <div class="form-icon">
+                                            <i class="fal fa-window-close"></i>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="invalid-feedback">
+                                        Campo obrigatório
+                                      </div>
+                                    </div>
+                                    <div class="column is-12">
+                                      <div class="buttons">
+                                        <button
+                                          class="button form-button"
+                                          onclick="ConfirmarCancelamento()"
+                                        >
+                                          Confirmar
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="solicitar-verificacao-modal"
+                class="modal is-small has-light-bg"
+              >
+                <div class="modal-background"></div>
+                <div id="solicitar-verificacao-modal" class="modal-content">
+                  <input
+                    type="hidden"
+                    id="profile-name"
+                    name="NomePerfil"
+                    value=""
+                  />
+                  <input
+                    type="hidden"
+                    id="post-success-message"
+                    name="NomePerfil"
+                    value=""
+                  />
+                  <div class="card">
+                    <div class="card-heading">
+                      <h3 style="margin-bottom: 0">
+                        <b>Solicitação de Verificação</b>
+                      </h3>
+                      <!-- Close X button -->
+                      <div class="close-wrap">
+                        <span class="close-modal" onclick="CloseModal()">
+                          <i class="fal fa-times"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <!-- Placeholder -->
+                      <div
+                        id="solicitar-verificacao-modal-content"
+                        class="content-section configuracao-perfil is-active"
+                      >
+                        <div class="settings-panel" style="padding: 0">
+                          <div class="content">
+                            <span
+                              class="mb-3"
+                              id="verificationRequest-show-loading"
+                              style="
+                                justify-content: center;
+                                align-items: center;
+                                display: none;
+                                display: flex;
+                              "
+                            >
+                              <i
+                                class="d-table fa fa-spin fa-spinner-third font-1-6rem m-auto text-center"
+                                style="font-size: 50px"
+                              ></i>
+                            </span>
+                            <div
+                              class="settings-form text-center"
+                              id="verification-request-btn"
+                              style="display: none"
+                            >
+                              <div
+                                class="columns column is-12 is-multiline"
+                                style="margin-bottom: 0"
+                              >
+                                <div class="column is-12 text-profile-two">
+                                  <p>
+                                    Conquiste o
+                                    <span class="text-primary"
+                                      ><b>Selo de Perfil Verificado</b></span
+                                    >
+                                    e ganhe ainda mais credibilidade.
+                                  </p>
+                                  <div
+                                    id="verification-request-expired"
+                                    style="display: none"
+                                  >
+                                    <p>
+                                      <span
+                                        >Sua última solicitação de verificação
+                                        não foi aprovada.</span
+                                      >
+                                    </p>
+                                  </div>
+                                  <div
+                                    class="buttons justify-content-center mt-4"
+                                  >
+                                    <button
+                                      class="button form-button"
+                                      onclick="PostVerificationRequest()"
+                                    >
+                                      SOLICITAR VERIFICAÇÃO
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              id="verification-request-exists"
+                              style="display: none"
+                            >
+                              <div
+                                id="verification-request-pending"
+                                style="display: none"
+                                class="col-12 mb-3"
+                              >
+                                <div class="mt-1">
+                                  <p class="text-profile-two">
+                                    Sua solicitação está <b> em análise.</b
+                                    ><br /><span class="text-center"
+                                      >Enviado em </span
+                                    ><span id="DataSolicitacao"></span>
+                                  </p>
+                                </div>
+                              </div>
+                              <div
+                                id="verification-request-approved"
+                                style="display: none"
+                                class="col-12 mb-3 text-profile-two"
+                              >
+                                <span class="mb-3">
+                                  <p>Parabéns, sua solicitação foi aprovada!</p>
+                                  <p>
+                                    Para concluir, digite no campo abaixo o
+                                    token de 6 dígitos que foi enviado através
+                                    do correio em seu endereço cadastrado.
+                                  </p>
+                                </span>
+                                <div
+                                  class="row col-12 mb-3 d-flex justify-content-center"
+                                >
+                                  <input
+                                    type="text"
+                                    class="row input is-fade col-4 text-center"
+                                    id="verification-token-input"
+                                    maxlength="6"
+                                    placeholder="**"
+                                  />
+                                </div>
+                                <div
+                                  class="buttons d-flex justify-content-center row col-12 mb-3"
+                                  style=""
+                                >
+                                  <button
+                                    class="button form-button is-disabled"
+                                    id="verify-token-btn"
+                                    onclick="PostVerificationRequestToken()"
+                                  >
+                                    Validar token
+                                  </button>
+                                </div>
+                                <small
+                                  class="error text-danger"
+                                  style="display: none"
+                                  id="verification-token-error"
+                                  >Verifique o token e tente novamente.</small
+                                >
+                              </div>
+                              <div
+                                id="verification-request-verified"
+                                class="col-12 mb-3 text-profile-two"
+                                style="display: none"
+                              >
+                                <span
+                                  >Parabéns! Seu perfil foi verificado com
+                                  sucesso.
+                                  <i
+                                    class="fa fa-badge-check light text-primary"
+                                  ></i
+                                ></span>
+                                <button
+                                  class="btn-block button form-button mt-3"
+                                  id="verify-token-btn"
+                                  onclick="RefreshScreen()"
+                                >
+                                  Finalizar
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <style>
+                .tooltip-search {
+                  display: inline-flex;
+                  position: relative;
+                  cursor: pointer;
+                }
+
+                .info-icon {
+                  cursor: pointer;
+                }
+
+                .tooltip-search .tooltiptext-search {
+                  visibility: hidden;
+                  background-color: #454545;
+                  color: #fff;
+                  text-align: center;
+                  border-radius: 5px;
+                  padding: 2px;
+                  position: absolute;
+                  top: -25px;
+                  left: -570%;
+                  transform: translateX(-50%);
+                  opacity: 0;
+                  transition: opacity 0.2s;
+                  width: 320px;
+                  font-size: 12px;
+                }
+
+                .tooltip-search:hover .info-icon + .tooltiptext-search,
+                .tooltip-search.active .info-icon + .tooltiptext-search {
+                  visibility: visible;
+                  opacity: 1;
+                }
+              </style>
+            </a>
+          </div>
+          <a href="#">
+            <privacy-web-tip
+              id="privacy-web-tip"
+              app-settings="eyJQUklWQUNZX1VSTCI6Imh0dHBzOi8vcHJpdmFjeS5jb20uYnIiLCJQUklWQUNZX01PRFVMRVMiOiJodHRwczovL21vZHVsZXMucHJpdmFjeS5jb20uYnIiLCJFTkRQT0lOVF9BUElfTEVHQUNZIjoiaHR0cHM6Ly9zZXJ2aWNlLnByaXZhY3kuY29tLmJyL2xlZ2FjeS8iLCJFTkRQT0lOVF9BUElfUFJJVkFDWSI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9sZWdhY3kvIiwiRU5EUE9JTlRfQVBJX0ZJTkFOQ0lBTCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9maW5hbmNpYWwvIiwiRU5EUE9JTlRfQVBJX0NIQVQiOiJodHRwczovL3NlcnZpY2UucHJpdmFjeS5jb20uYnIvY2hhdCIsIkVORFBPSU5UX0FQSV9QUklWQUNZX0ROUyI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9sZWdhY3kiLCJFTkRQT0lOVF9BUElfUEFZTUVOVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9wYXltZW50IiwiRU5EUE9JTlRfQVBJX01FRElBIjoiaHR0cHM6Ly9zZXJ2aWNlLnByaXZhY3kuY29tLmJyL21lZGlhIiwiRU5EUE9JTlRfQVBJX1BST0ZJTEUiOiJodHRwczovL3NlcnZpY2UucHJpdmFjeS5jb20uYnIvcHJvZmlsZS8ifQ=="
+              token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI"
+              token-v1="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ29tdW0iLCJzdWIiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJJZFVzdWFyaW8iOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsImJpcnRoZGF0ZSI6IjE5MDAtMDEtMDEiLCJqdGkiOiI3M2ExYjBiMS0wZWVmLTQxZWQtYTViMy1kZTVhMGZiMjhmZWYiLCJuYmYiOjE3MzA5ODM5MzIsImlhdCI6MTczMDk4Mzg3MiwiZXhwIjoxNzMxMDA1NTMyLCJpc3MiOiJwcml2YWN5In0.sFuQzVvt2P_anqSgKASeNHcPIIdDUvtkFOG90KIpDbQ"
+              locale="pt-BR"
+            ></privacy-web-tip>
+
+            <privacy-web-payment
+              id="privacy-web-payment"
+              locale="pt-BR"
+              app-settings="eyJFTkRQT0lOVF9BUElfRklOQU5DSUFMIjoiaHR0cHM6Ly9zZXJ2aWNlLnByaXZhY3kuY29tLmJyL2ZpbmFuY2lhbC8iLCJQUklWQUNZX1VSTCI6Imh0dHBzOi8vcHJpdmFjeS5jb20uYnIiLCJQUklWQUNZX01PRFVMRVMiOiJodHRwczovL21vZHVsZXMucHJpdmFjeS5jb20uYnIiLCJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX1BBWU1FTlQiOiJodHRwczovL3NlcnZpY2UucHJpdmFjeS5jb20uYnIvcGF5bWVudCIsIkVORFBPSU5UX0FQSV9QUklWQUNZIjoiaHR0cHM6Ly9zZXJ2aWNlLnByaXZhY3kuY29tLmJyL2xlZ2FjeS8iLCJFTkRQT0lOVF9BUElfUFJJVkFDWV9ETlMiOiJodHRwczovL3NlcnZpY2UucHJpdmFjeS5jb20uYnIvbGVnYWN5IiwiRU5EUE9JTlRfQVBJX01FRElBIjoiaHR0cHM6Ly9zZXJ2aWNlLnByaXZhY3kuY29tLmJyL21lZGlhIiwiRU5EUE9JTlRfQVBJX1BST0ZJTEUiOiJodHRwczovL3NlcnZpY2UucHJpdmFjeS5jb20uYnIvcHJvZmlsZS8ifQ=="
+              token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI"
+              token-v1="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ29tdW0iLCJzdWIiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJJZFVzdWFyaW8iOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsImJpcnRoZGF0ZSI6IjE5MDAtMDEtMDEiLCJqdGkiOiI3M2ExYjBiMS0wZWVmLTQxZWQtYTViMy1kZTVhMGZiMjhmZWYiLCJuYmYiOjE3MzA5ODM5MzIsImlhdCI6MTczMDk4Mzg3MiwiZXhwIjoxNzMxMDA1NTMyLCJpc3MiOiJwcml2YWN5In0.sFuQzVvt2P_anqSgKASeNHcPIIdDUvtkFOG90KIpDbQ"
+              value="0"
+              has-restrictions="true"
+            ></privacy-web-payment>
+
+            <privacy-web-antifraud-report
+              id="privacy-web-antifraud-report"
+              app-settings="eyJQUklWQUNZX01PRFVMRVMiOiJodHRwczovL21vZHVsZXMucHJpdmFjeS5jb20uYnIiLCJFTkRQT0lOVF9BUElfQVVUSCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9hdXRoLyIsIkVORFBPSU5UX0FQSV9QUk9GSUxFIjoiaHR0cHM6Ly9zZXJ2aWNlLnByaXZhY3kuY29tLmJyL3Byb2ZpbGUvIiwiRU5EUE9JTlRfQVBJX1JFRkVSIjoiaHR0cHM6Ly9zZXJ2aWNlLnByaXZhY3kuY29tLmJyL3JlZmVyIiwiRU5EUE9JTlRfQVBJX0xFR0FDWSI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9sZWdhY3kvIiwiRU5EUE9JTlRfQVBJX0FOVElGUkFVRF9SRVBPUlQiOiJodHRwczovL3NlcnZpY2UucHJpdmFjeS5jb20uYnIvYW50aWZyYXVkcmVwb3J0LyJ9"
+              token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI"
+              token-v1="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ29tdW0iLCJzdWIiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJJZFVzdWFyaW8iOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsImJpcnRoZGF0ZSI6IjE5MDAtMDEtMDEiLCJqdGkiOiI3M2ExYjBiMS0wZWVmLTQxZWQtYTViMy1kZTVhMGZiMjhmZWYiLCJuYmYiOjE3MzA5ODM5MzIsImlhdCI6MTczMDk4Mzg3MiwiZXhwIjoxNzMxMDA1NTMyLCJpc3MiOiJwcml2YWN5In0.sFuQzVvt2P_anqSgKASeNHcPIIdDUvtkFOG90KIpDbQ"
+              locale="pt-BR"
+              reported-profile-id="00000000-0000-0000-0000-000000000000"
+            ></privacy-web-antifraud-report>
+
+            <div id="heart-wrapper" class="heart-wrapper">
+              <lottie-player
+                id="like-lottie-player"
+                src="/assets/js/heart.json?_=20241106185630731Z"
+                background="transparent.html"
+                speed="1"
+                style="width: 250px; height: 250px"
+                direction="1"
+                mode="normal"
+              ></lottie-player>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
