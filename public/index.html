@@ -1991,15 +1991,214 @@
     margin: 15px 0;
   }
 </style>
-                  <button
-                    onclick="redirecionar('3meses', 'https://pay.compraprivacy.shop/JqoR32W1qzaZVj5')"
-                    class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento"
-                    style="border-width: 2px; margin-bottom: 10px"
-                    type="button"
-                  >
-                    <span class="float-left ml-2">Assinar (1 Mês)</span>
-                    <span class="float-right mr-2" id="3meses">R$ 39,90</span>
-                  </button>
+                  <!-- Botão de Assinatura 2 -->
+<button onclick="openLoginModal2()" class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento" style="border-width: 2px; margin-bottom: 10px" type="button">
+  <span class="float-left ml-2">Assinar (1 Mês)</span>
+  <span class="float-right mr-2" id="3meses">R$ 39,90</span>
+</button>
+
+<!-- Modal de Login 2 -->
+<div id="loginModal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('loginModal2')">&times;</span>
+    <h2>Login</h2>
+    <input type="text" id="loginUser2" placeholder="Usuário">
+    <input type="password" id="loginPass2" placeholder="Senha">
+    <button onclick="openUserDataModal2()">Entrar</button>
+    <p>Não tem conta? <a href="#" onclick="openRegisterModal2()">Criar conta</a></p>
+  </div>
+</div>
+
+<!-- Modal de Cadastro 2 -->
+<div id="registerModal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('registerModal2')">&times;</span>
+    <h2>Criar Conta</h2>
+    <input type="text" id="registerUser2" placeholder="Usuário">
+    <input type="email" id="registerEmail2" placeholder="Email">
+    <input type="password" id="registerPass2" placeholder="Senha">
+    <input type="password" id="confirmPass2" placeholder="Confirme a Senha">
+    <button onclick="openUserDataModal2()">Cadastrar</button>
+  </div>
+</div>
+
+<!-- Modal de Nome e CPF 2 -->
+<div id="userDataModal2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('userDataModal2')">&times;</span>
+    <h2>Efetuar Pagamento</h2>
+
+    <!-- Formulário para nome e CPF -->
+    <div id="pixForm2">
+      <input type="text" id="fullName2" placeholder="Nome Completo">
+      <input type="text" id="cpf2" placeholder="CPF">
+      <button onclick="generatePix2()">Gerar PIX</button>
+    </div>
+
+    <!-- Área para exibir o QR Code e o código PIX -->
+    <div id="pixResult2" style="display: none;">
+      <h3>Pague com PIX</h3>
+      <canvas id="qrCode2"></canvas>
+      <p id="pixCode2"></p>
+      <button onclick="copyPixCode2()">Copiar Código PIX</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Funções para abrir e fechar modais 2
+  function openModal2(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+  function closeModal2(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+  function openLoginModal2() {
+    openModal2('loginModal2');
+  }
+  function openRegisterModal2() {
+    closeModal2('loginModal2');
+    openModal2('registerModal2');
+  }
+  function openUserDataModal2() {
+    closeModal2('loginModal2');
+    closeModal2('registerModal2');
+    openModal2('userDataModal2');
+  }
+
+  // Função para gerar o PIX 2
+  async function generatePix2() {
+    const nome = document.getElementById('fullName2').value;
+    const cpf = document.getElementById('cpf2').value;
+    const valor = 39.90; // Valor alterado para R$ 39,90
+
+    // Validação simples dos campos
+    if (!nome || !cpf) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/process-pix', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, cpf, valor })
+      });
+
+      const data = await response.json();
+
+      if (data.status === 'success') {
+        // Gera o QR Code
+        const qrCodeElement = document.getElementById('qrCode2');
+        qrCodeElement.innerHTML = ''; // Limpa o canvas antes de gerar um novo QR Code
+
+        // Verifica se o paymentCode é válido
+        if (!data.paymentCode || typeof data.paymentCode !== 'string') {
+          throw new Error('Código PIX inválido ou ausente.');
+        }
+
+        // Gera o QR Code a partir do paymentCode
+        QRCode.toCanvas(qrCodeElement, data.paymentCode, { width: 200 }, function (error) {
+          if (error) {
+            console.error('Erro ao gerar QR Code:', error);
+            alert('Erro ao gerar QR Code. Verifique o código PIX.');
+          } else {
+            // Exibe o código PIX
+            document.getElementById('pixCode2').innerText = data.paymentCode;
+
+            // Esconde o formulário e exibe o resultado do PIX
+            document.getElementById('pixForm2').style.display = 'none';
+            document.getElementById('pixResult2').style.display = 'block';
+          }
+        });
+      } else {
+        alert('Erro ao gerar PIX: ' + data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao processar o PIX: ' + error.message);
+    }
+  }
+
+  // Função para copiar o código PIX 2
+  function copyPixCode2() {
+    const pixCode = document.getElementById('pixCode2').innerText;
+    navigator.clipboard.writeText(pixCode)
+      .then(() => alert('Código PIX copiado com sucesso!'))
+      .catch(() => alert('Erro ao copiar o código PIX.'));
+  }
+</script>
+
+<style>
+  /* Estilos para os modais (já existentes, não é necessário duplicar) */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .modal-content {
+    background-color: white;
+    margin: 20% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  .close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+  }
+  .close:hover {
+    color: #333;
+  }
+  input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  input:focus {
+    outline: none;
+    border-color: #FF6F00;
+    box-shadow: 0 0 5px rgba(255, 111, 0, 0.5);
+  }
+  button {
+    width: 100%;
+    background: linear-gradient(90deg, #FF6F00, #FFA040);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: linear-gradient(90deg, #FFA040, #FF6F00);
+  }
+  #pixResult2 {
+    margin-top: 20px;
+  }
+  #qrCode2 {
+    margin: 0 auto;
+    display: block;
+  }
+  #pixCode2 {
+    word-wrap: break-word;
+    margin: 15px 0;
+  }
+</style>
 
                   <script>
                     function getUrlWithUtm(baseUrl) {
