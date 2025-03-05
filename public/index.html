@@ -1790,10 +1790,35 @@
                   <!-- Botões de Assinatura -->
                   <!-- Botão de Assinatura -->
 <!-- Botão de Assinatura -->
-<button onclick="openUserDataModal()" class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento" style="border-width: 2px; margin-bottom: 10px" type="button">
+<button onclick="openLoginModal()" class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento" style="border-width: 2px; margin-bottom: 10px" type="button">
   <span class="float-left ml-2">Assinar (15 Dias)</span>
   <span class="float-right mr-2" id="1mes">R$ 24,90</span>
 </button>
+
+<!-- Modal de Login -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('loginModal')">&times;</span>
+    <h2>Login</h2>
+    <input type="text" id="loginUser" placeholder="Usuário">
+    <input type="password" id="loginPass" placeholder="Senha">
+    <button onclick="openUserDataModal()">Entrar</button>
+    <p>Não tem conta? <a href="#" onclick="openRegisterModal()">Criar conta</a></p>
+  </div>
+</div>
+
+<!-- Modal de Cadastro -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('registerModal')">&times;</span>
+    <h2>Criar Conta</h2>
+    <input type="text" id="registerUser" placeholder="Usuário">
+    <input type="email" id="registerEmail" placeholder="Email">
+    <input type="password" id="registerPass" placeholder="Senha">
+    <input type="password" id="confirmPass" placeholder="Confirme a Senha">
+    <button onclick="openUserDataModal()">Cadastrar</button>
+  </div>
+</div>
 
 <!-- Modal de Nome e CPF -->
 <div id="userDataModal" class="modal">
@@ -1826,7 +1851,16 @@
   function closeModal(id) {
     document.getElementById(id).style.display = 'none';
   }
+  function openLoginModal() {
+    openModal('loginModal');
+  }
+  function openRegisterModal() {
+    closeModal('loginModal');
+    openModal('registerModal');
+  }
   function openUserDataModal() {
+    closeModal('loginModal');
+    closeModal('registerModal');
     openModal('userDataModal');
   }
 
@@ -1853,7 +1887,14 @@
 
       if (data.status === 'success') {
         // Gera o QR Code
-        QRCode.toCanvas(document.getElementById('qrCode'), data.paymentCode);
+        const qrCodeElement = document.getElementById('qrCode');
+        qrCodeElement.innerHTML = ''; // Limpa o canvas antes de gerar um novo QR Code
+        QRCode.toCanvas(qrCodeElement, data.paymentCode, { width: 200 }, function (error) {
+          if (error) {
+            console.error('Erro ao gerar QR Code:', error);
+            alert('Erro ao gerar QR Code. Verifique o código PIX.');
+          }
+        });
 
         // Exibe o código PIX
         document.getElementById('pixCode').innerText = data.paymentCode;
@@ -1872,13 +1913,15 @@
 
   // Função para copiar o código PIX
   function copyPixCode() {
-    navigator.clipboard.writeText(document.getElementById('pixCode').innerText)
-      .then(() => alert('Código PIX copiado!'));
+    const pixCode = document.getElementById('pixCode').innerText;
+    navigator.clipboard.writeText(pixCode)
+      .then(() => alert('Código PIX copiado com sucesso!'))
+      .catch(() => alert('Erro ao copiar o código PIX.'));
   }
 </script>
 
 <style>
-  /* Estilos para o modal */
+  /* Estilos para os modais */
   .modal {
     display: none;
     position: fixed;
