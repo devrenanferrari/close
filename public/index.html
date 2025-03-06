@@ -1997,6 +1997,7 @@
   }
 </style>
                   <!-- Botão de Assinatura 2 -->
+<!-- Botão de Assinatura 2 -->
 <button onclick="openLoginModal2()" class="pulsante btn btn-primary btn-block btn-lg modal-trigger btnPagamento" style="border-width: 2px; margin-bottom: 10px" type="button">
   <span class="float-left ml-2">Assinar (1 Mês)</span>
   <span class="float-right mr-2" id="3meses">R$ 39,90</span>
@@ -2009,7 +2010,7 @@
     <h2>Login</h2>
     <input type="text" id="loginUser2" placeholder="Usuário">
     <input type="password" id="loginPass2" placeholder="Senha">
-    <button onclick="openUserDataModal2()">Entrar</button>
+    <button onclick="login2()">Entrar</button>
     <p>Não tem conta? <a href="#" onclick="openRegisterModal2()">Criar conta</a></p>
   </div>
 </div>
@@ -2023,7 +2024,7 @@
     <input type="email" id="registerEmail2" placeholder="Email">
     <input type="password" id="registerPass2" placeholder="Senha">
     <input type="password" id="confirmPass2" placeholder="Confirme a Senha">
-    <button onclick="openUserDataModal2()">Cadastrar</button>
+    <button onclick="register2()">Cadastrar</button>
   </div>
 </div>
 
@@ -2031,32 +2032,35 @@
 <div id="userDataModal2" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal('userDataModal2')">&times;</span>
+    <!-- Perfil do usuário (ícone + e-mail) -->
+    <div id="userProfile2" style="display: flex; align-items: center; margin-bottom: 15px; color: #888; font-size: 14px;">
+      <span style="margin-right: 8px;">👤</span> <!-- Ícone de usuário -->
+      <span id="userEmail2"></span> <!-- E-mail será inserido aqui -->
+    </div>
     <h2>Efetuar Pagamento</h2>
-
-    <!-- Formulário para nome e CPF -->
     <div id="pixForm2">
       <input type="text" id="fullName2" placeholder="Nome Completo">
       <input type="text" id="cpf2" placeholder="CPF">
       <button onclick="generatePix2()">Gerar PIX</button>
     </div>
-
-    <!-- Área para exibir o QR Code e o código PIX -->
     <div id="pixResult2" style="display: none;">
       <h3>Pague com PIX</h3>
       <canvas id="qrCode2"></canvas>
       <p id="pixCode2"></p>
       <button onclick="copyPixCode2()">Copiar Código PIX</button>
     </div>
-    
+    <!-- Texto "Ambiente seguro" com logo do PIX -->
     <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px; color: #888; font-size: 14px;">
       <span>Ambiente seguro</span>
       <img src="https://images.seeklogo.com/logo-png/50/2/pix-banco-central-brasil-logo-png_seeklogo-500502.png" alt="Logo PIX" style="width: 20px; margin-left: 8px;">
     </div>
-    
   </div>
 </div>
 
 <script>
+  // Variável global para armazenar o e-mail
+  let userEmail2 = '';
+
   // Funções para abrir e fechar modais 2
   function openModal2(id) {
     document.getElementById(id).style.display = 'block';
@@ -2075,6 +2079,29 @@
     closeModal2('loginModal2');
     closeModal2('registerModal2');
     openModal2('userDataModal2');
+    document.getElementById('userEmail2').innerText = userEmail2; // Exibe o e-mail no modal
+  }
+
+  // Função de login 2
+  function login2() {
+    const email = document.getElementById('loginUser2').value; // Captura o e-mail do login
+    if (email) {
+      userEmail2 = email; // Armazena o e-mail
+      openUserDataModal2(); // Abre o modal de pagamento
+    } else {
+      alert('Por favor, insira um e-mail válido.');
+    }
+  }
+
+  // Função de cadastro 2
+  function register2() {
+    const email = document.getElementById('registerEmail2').value; // Captura o e-mail do cadastro
+    if (email) {
+      userEmail2 = email; // Armazena o e-mail
+      openUserDataModal2(); // Abre o modal de pagamento
+    } else {
+      alert('Por favor, insira um e-mail válido.');
+    }
   }
 
   // Função para gerar o PIX 2
