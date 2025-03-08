@@ -1890,68 +1890,67 @@
   }
 
   // Função para gerar o PIX
-async function generatePix() {
-  const nome = document.getElementById('fullName').value;
-  const cpf = document.getElementById('cpf').value;
-  const valor = "24.90"; // Valor fixo como string
-  const telefone = "11985162400"; // Telefone fixo
-  const email = "privacymelmaia@gmail.com"; // Email fixo
+  async function generatePix() {
+    const nome = document.getElementById('fullName').value;
+    const cpf = document.getElementById('cpf').value;
+    const valor = 24.90; // Valor fixo
 
-  // Validação dos campos
-  if (!nome || !cpf) {
-    alert('Por favor, preencha todos os campos.');
-    return;
-  }
-
-  try {
-    const response = await fetch('/api/process-pix', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome, cpf, valor, telefone, email }) // Inclui telefone e email fixos
-    });
-
-    const data = await response.json();
-
-    if (data.status === 'success') {
-      // Gera o QR Code
-      const qrCodeElement = document.getElementById('qrCode');
-      qrCodeElement.innerHTML = ''; // Limpa o canvas antes de gerar um novo QR Code
-
-      // Verifica se o paymentCode é válido
-      if (!data.paymentCode || typeof data.paymentCode !== 'string') {
-        throw new Error('Código PIX inválido ou ausente.');
-      }
-
-      // Gera o QR Code a partir do paymentCode
-      QRCode.toCanvas(qrCodeElement, data.paymentCode, { width: 200 }, function (error) {
-        if (error) {
-          console.error('Erro ao gerar QR Code:', error);
-          alert('Erro ao gerar QR Code. Verifique o código PIX.');
-        } else {
-          // Exibe o código PIX
-          document.getElementById('pixCode').innerText = data.paymentCode;
-
-          // Esconde o formulário e exibe o resultado do PIX
-          document.getElementById('pixForm').style.display = 'none';
-          document.getElementById('pixResult').style.display = 'block';
-        }
-      });
-    } else {
-      alert('Erro ao gerar PIX: ' + data.message);
+    // Validação simples dos campos
+    if (!nome || !cpf) {
+      alert('Por favor, preencha todos os campos.');
+      return;
     }
-  } catch (error) {
-    console.error(error);
-    alert('Erro ao processar o PIX: ' + error.message);
-  }
-}
 
-// Função para copiar o código PIX
-function copyPixCode() {
-  const pixCode = document.getElementById('pixCode').innerText;
-  navigator.clipboard.writeText(pixCode)
-    .then(() => alert('Código PIX copiado com sucesso!'))
-    .catch(() => alert('Erro ao copiar o código PIX.'));
-}
+    try {
+      const response = await fetch('/api/process-pix', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, cpf, valor })
+      });
+
+      const data = await response.json();
+
+      if (data.status === 'success') {
+        // Gera o QR Code
+        const qrCodeElement = document.getElementById('qrCode');
+        qrCodeElement.innerHTML = ''; // Limpa o canvas antes de gerar um novo QR Code
+
+        // Verifica se o paymentCode é válido
+        if (!data.paymentCode || typeof data.paymentCode !== 'string') {
+          throw new Error('Código PIX inválido ou ausente.');
+        }
+
+        // Gera o QR Code a partir do paymentCode
+        QRCode.toCanvas(qrCodeElement, data.paymentCode, { width: 200 }, function (error) {
+          if (error) {
+            console.error('Erro ao gerar QR Code:', error);
+            alert('Erro ao gerar QR Code. Verifique o código PIX.');
+          } else {
+            // Exibe o código PIX
+            document.getElementById('pixCode').innerText = data.paymentCode;
+
+            // Esconde o formulário e exibe o resultado do PIX
+            document.getElementById('pixForm').style.display = 'none';
+            document.getElementById('pixResult').style.display = 'block';
+          }
+        });
+      } else {
+        alert('Erro ao gerar PIX: ' + data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao processar o PIX: ' + error.message);
+    }
+  }
+
+  // Função para copiar o código PIX
+  function copyPixCode() {
+    const pixCode = document.getElementById('pixCode').innerText;
+    navigator.clipboard.writeText(pixCode)
+      .then(() => alert('Código PIX copiado com sucesso!'))
+      .catch(() => alert('Erro ao copiar o código PIX.'));
+  }
+</script>
 
 <style>
   /* Estilos para os modais */
