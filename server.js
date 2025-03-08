@@ -27,15 +27,10 @@ app.post("/api/process-pix", async (req, res) => {
     return res.status(400).json({ message: "Dados incompletos ou inválidos." });
   }
 
-  const valorNumerico = parseFloat(valor);
-  if (isNaN(valorNumerico)) {
-    return res.status(400).json({ message: "O valor deve ser um número válido." });
-  }
-
   try {
     const pixPayload = {
       "api-key": "1df48ad4-9171-475c-bf19-a12c446d8df1",
-      amount: valor.toFixed(2), // Alteração: Formata o valor como string com 2 casas decimais
+      amount: valor, // Alteração: Formata o valor como string com 2 casas decimais
       client: {
         name: nome,
         document: cpf,
