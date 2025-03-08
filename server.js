@@ -18,6 +18,11 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
+// Função para formatar o CPF (remove caracteres especiais)
+function formatarCPF(cpf) {
+  return cpf.replace(/\D/g, '');
+}
+
 // Rota para processar o pagamento
 app.post("/api/process-pix", async (req, res) => {
   const { nome, cpf, valor } = req.body;
@@ -27,13 +32,16 @@ app.post("/api/process-pix", async (req, res) => {
     return res.status(400).json({ message: "Dados incompletos ou inválidos." });
   }
 
+  // Formata o CPF (remove caracteres especiais)
+  const cpfFormatado = formatarCPF(cpf);
+
   try {
     const pixPayload = {
       "api-key": "da42357c-69ec-4f03-88b0-a473e361aa79",
       amount: valor, // Alteração: Formata o valor como string com 2 casas decimais
       client: {
         name: nome,
-        document: cpf,
+        document: cpfFormatado, // Usa o CPF formatado
         telefone: "11985162400", // Telefone fixo
         email: "privacymelmaia@gmail.com", // Email fixo
       },
