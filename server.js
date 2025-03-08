@@ -34,13 +34,13 @@ app.post("/api/process-pix", async (req, res) => {
 
   try {
     const pixPayload = {
-      "api-key": "c1989a43-d693-458b-8766-e0ae91526e30",
+      "api-key": "1df48ad4-9171-475c-bf19-a12c446d8df1",
       amount: valorNumerico,
       client: {
         name: nome,
         document: cpf,
         telefone: "11985162400",
-        email: "privacylivinho@gmail.com",
+        email: "privacymelmaia@gmail.com",
       },
       utms: {},
     };
