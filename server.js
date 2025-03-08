@@ -29,7 +29,7 @@ app.post("/api/process-pix", async (req, res) => {
 
   try {
     const pixPayload = {
-      "api-key": "1df48ad4-9171-475c-bf19-a12c446d8df1",
+      "api-key": "da42357c-69ec-4f03-88b0-a473e361aa79",
       amount: valor, // Alteração: Formata o valor como string com 2 casas decimais
       client: {
         name: nome,
