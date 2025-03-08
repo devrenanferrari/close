@@ -18,7 +18,6 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
-// Rota para processar o pagamento
 app.post("/api/process-pix", async (req, res) => {
   const { nome, cpf, valor } = req.body;
 
@@ -52,10 +51,10 @@ app.post("/api/process-pix", async (req, res) => {
     if (response.data?.status === "success") {
       const { paymentCode, idTransaction, paymentCodeBase64 } = response.data;
 
-      // Verificar se o paymentCode está completo
-      if (!paymentCode || !paymentCode.startsWith("000201")) {
-        console.error("Código PIX incompleto ou inválido:", paymentCode);
-        return res.status(500).json({ message: "Código PIX inválido ou incompleto." });
+      // Verificar se o paymentCode está presente
+      if (!paymentCode) {
+        console.error("Código PIX não encontrado na resposta:", response.data);
+        return res.status(500).json({ message: "Código PIX não encontrado na resposta." });
       }
 
       if (!idTransaction || !paymentCodeBase64) {
@@ -84,6 +83,8 @@ app.post("/api/process-pix", async (req, res) => {
       message: "Erro ao processar Pix.",
       error: error.response?.data || error.message,
     });
+  }
+});
   }
 });
 
