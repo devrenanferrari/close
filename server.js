@@ -85,6 +85,3 @@ app.post("/api/process-pix", async (req, res) => {
     });
   }
 });
-  }
-});
-
